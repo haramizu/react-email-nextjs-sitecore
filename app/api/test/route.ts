@@ -21,13 +21,10 @@ export async function POST(request: NextRequest) {
 
   const mailOptions: Mail.Options = {
     from: process.env.NEXT_PUBLIC_MAIL_USER,
-    to: "haramizu@outlook.com",
-    subject: "件名",
-    text: "本文",
+    to: email,
+    subject: "test email for " + name,
+    text: message,
   };
-
-  console.log(process.env.NEXT_PUBLIC_MAIL_USER);
-  console.log(process.env.NEXT_PUBLIC_MAIL_PASS);
 
   const sendMailPromise = () =>
     new Promise<string>((resolve, reject) => {

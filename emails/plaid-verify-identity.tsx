@@ -49,7 +49,12 @@ export const PlaidVerifyIdentityEmail = ({
           if you did not request this code.
         </Text>
       </Container>
-      <Text style={footer}>Securely powered by Plaid.</Text>
+      <Text style={footer}>
+        Securely powered by Plaid.
+        <br />
+        If you don't want to same email, please{" "}
+        <Link href="#unsubscribeLink#">Click here</Link>
+      </Text>
     </Body>
   </Html>
 );

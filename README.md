@@ -79,6 +79,43 @@ If test is success, api sendback result and status 200.
 {"message":"Email sent"}
 ```
 
+## Send sample email
+
+### Notion magic link
+
+API access to http://localhost:3000/api/notion-magic-link
+
+```
+{
+    "email": "your test email addresss",
+    "name": "Shinichi Haramizu",
+    "loginCode": "test code"
+}
+```
+
+### Plaid Verify Identity
+
+API Access to http://localhost:3000/api/plaid-verify-identity
+
+```
+{
+    "email": "your test email addresss",
+    "name": "Shinichi Haramizu",
+    "validationCode": "test code"
+}
+```
+
+### Stripe Welcome
+
+API Access to http://localhost:3000/api/stripe-welcome
+
+```
+{
+    "email": "your test email addresss",
+    "name": "Shinichi Haramizu",
+}
+```
+
 ## History
 
 2024.02.02 Release simple test version

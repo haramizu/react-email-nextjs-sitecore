@@ -1,12 +1,15 @@
 import { type NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
+import { renderAsync } from "@react-email/render";
+import React from "react";
+
+import { NotionMagicLinkEmail } from "@/emails/notion-magic-link";
 
 export async function POST(request: NextRequest) {
-  const { email, name, message } = await request.json();
+  const { email, name, loginCode } = await request.json();
 
   console.log(email);
-
   const transporter = nodemailer.createTransport({
     host: "smtp.mailendo.com",
     port: 587,
@@ -17,11 +20,18 @@ export async function POST(request: NextRequest) {
     },
   });
 
+  const emailHtml = await renderAsync(
+    React.createElement(NotionMagicLinkEmail, { loginCode })
+  );
+
+  const emailText = "Please use login code:" + loginCode;
+
   const mailOptions: Mail.Options = {
     from: process.env.NEXT_PUBLIC_MAIL_USER,
     to: email,
-    subject: "test email for " + name,
-    text: message,
+    subject: "Test email - Notion magic - link for " + name,
+    html: emailHtml,
+    text: emailText,
   };
 
   const sendMailPromise = () =>

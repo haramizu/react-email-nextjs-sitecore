@@ -81,10 +81,6 @@ export const NotionMagicLinkEmail = ({
           , the all-in-one-workspace
           <br />
           for your notes, tasks, wikis, and databases.
-          <br />
-          <br />
-          If you don't want to same email, please{" "}
-          <Link href="#unsubscribeLink#">Click here</Link>
         </Text>
       </Container>
     </Body>

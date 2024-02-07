@@ -29,6 +29,10 @@ export async function POST(request: NextRequest) {
   const mailOptions: Mail.Options = {
     from: process.env.NEXT_PUBLIC_MAIL_USER,
     to: email,
+    headers: {
+      mailing_list_id: "ab656c36-f913-4ea3-9c45-920cb807db2b",
+      campaign_guid: "7ee7dbe9-ddd0-4470-b39f-1a06e87bf10b",
+    },
     subject: "Test email - Notion magic - link for " + name,
     html: emailHtml,
     text: emailText,
